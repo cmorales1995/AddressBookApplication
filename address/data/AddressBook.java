@@ -1,8 +1,8 @@
 package address.data;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 // more info on Tree maps
 //https://www.geeksforgeeks.org/treemap-in-java/
@@ -10,7 +10,7 @@ import java.util.TreeMap;
 public class AddressBook {
     /*
     there are currently two Tree maps being used in here for general testing.
-    I need to see which one has the better implemenation
+    I need to see which one has the better implementation
      */
     //Integer keys = 0;
 
@@ -51,7 +51,47 @@ public class AddressBook {
 
         }
 
+    public static void ReadFile(File test){
 
+        System.out.println(test.exists());
+        Scanner myReader;
+        try {
+            myReader = new Scanner(test);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        // if I want the file to go through every line, I need a delimiter to parse it.
+        // currently this will reset the first name every time it's the while loop.
+        List<String> results = new ArrayList<>();
+        String data;
+        while (myReader.hasNextLine()) {
+            data = myReader.nextLine();
+            results.add(List.of(Arrays.toString(data.split("\\s+"))).toString().replace("[", "")
+                    .replace("]", "")
+            );
+        }
+        //     results = List.of(data.split("\\s+"));
+        if (results.isEmpty()) {
+            System.out.println("LIST IS 0");
+            }
+            // ml.setFirstname(results.get(0));
+            // System.out.println();
+            System.out.println(results.size());
+
+            /*
+            ml.setFirstname(results.get(0));
+            ml.setLastName(results.get(1));
+            // String streetName = results.get(2) + " " + results.get(3);
+            ml.setStreet((results.get(2) + results.get(3)));
+            ml.setCity(results.get(4));
+            ml.setState(results.get(5));
+            //ml.setZip(Integer.parseInt(results.get(6)));
+            ml.setPhone(results.get(7));
+            //ml.setEmail(results.get(8));
+             */
+
+
+    }
 
         //addressEntryList.
 
