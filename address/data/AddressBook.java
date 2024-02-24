@@ -10,9 +10,10 @@ import java.util.TreeMap;
 public class AddressBook {
     /*
     there are currently two Tree maps being used in here for general testing.
-
+    I need to see which one has the better implemenation
      */
     Integer keys = 0;
+
     public static TreeMap<Integer, String> books = new TreeMap<>();
 
     public static TreeMap<Integer, addressEntry> addressEntryList = new TreeMap<>();
