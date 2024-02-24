@@ -1,5 +1,6 @@
 package address;
 
+import address.data.AddressBookTest;
 import address.data.addressEntry;
 import address.data.AddressBook;
 
@@ -7,8 +8,12 @@ import address.data.AddressBook;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class AddressBookApplication {
-    static AddressBook addressbook = new AddressBook();
+    public static AddressBook addressbook = new AddressBook();
 
+    /*
+    This is a function that creates an entry
+    and places the entry into the addressbook data structure.
+     */
     public static void initAddressBookExercise(AddressBook ab) {
         addressEntry testName = new addressEntry("John", "Smith", "A street",
                 "Hayward" ,"CA", 992, "920-023", "Jsmith@gmail.com");
@@ -31,6 +36,19 @@ public class AddressBookApplication {
     public static void main(String[] args) {
 
         initAddressBookExercise(addressbook);
+        System.out.println(100);
+
+        // this was test code of an instance I created in my test class. I deleted it.
+       // System.out.println(AddressBookTest.testcase.getFirstname());
+
+        String n = "Hello";
+        addressEntry testName2 = new addressEntry("John", "Smith", "A street",
+                "Hayward" ,"CA", 992, "920-023", "Jsmith@gmail.com");
+        AddressBook.books.put(2, n);
+        System.out.println(AddressBook.books.get(2));
+        AddressBookTest.TreeInformation();
+        System.out.println();
+        AddressBook.remove(testName2);
     }
 
 }
