@@ -1,6 +1,33 @@
 package address;
 
+import java.util.Scanner;
+
+import static java.lang.String.valueOf;
+
+//https://www.youtube.com/watch?v=hOxeh_j4MEc&themeRefresh=1
 public class Menu {
+
+    public static void displayMenu(){
+        Scanner menuObject = new Scanner(System.in);
+        String conditonalString = null;
+        do {
+            System.out.println("*******************************");
+            System.out.println("A)Loading from a File:");
+            System.out.println("B)Additional");
+            System.out.println("C)Removal");
+            System.out.println("D)Find:");
+            System.out.println("E)Listing");
+            System.out.println("F)Quit:");
+            System.out.println("*******************************");
+            System.out.println(" ");
+            // Byte input since I will use a switch statement to load file.
+            String option = menuObject.nextLine();
+            System.out.println(option);
+            conditonalString =  option;
+            System.out.println(conditonalString + " --- this is the conditional");
+        }
+            while (!conditonalString.equals("f") && !conditonalString.equals("F"));
+    }
 
     public static String prompt_FirstName(){
         System.out.print("First Name: ");
@@ -35,6 +62,10 @@ public class Menu {
         System.out.print("Email: ");
         return "email@yahoo.com";
     }
+
+}
+
+//remainder code
 /*
         //this is the first name
         String first_Name = Menu.prompt_FirstName();
@@ -61,5 +92,3 @@ public class Menu {
         String email_address = Menu.prompt_Email();
         System.out.println(email_address);
         */
-
-}

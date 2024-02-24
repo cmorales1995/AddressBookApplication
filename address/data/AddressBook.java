@@ -72,7 +72,7 @@ public class AddressBook {
         }
         //     results = List.of(data.split("\\s+"));
         if (results.isEmpty()) {
-            System.out.println("LIST IS 0");
+            System.out.println("File did not contain any information.");
             }
             // ml.setFirstname(results.get(0));
             // System.out.println();
@@ -90,9 +90,12 @@ public class AddressBook {
             //ml.setEmail(results.get(8));
              */
 
-
+        message();
     }
 
+    public static void message(){
+        System.out.println("*****Out of this Address Book function*****");
+    }
         //addressEntryList.
 
 }

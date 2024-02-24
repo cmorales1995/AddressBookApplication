@@ -3,10 +3,10 @@ package address.data;
 public class AddressBookTest {
     /*
     This is just an instance of an address entry.
-     */
-   // public static AddressBook addressbook = new AddressBook();
-   // public static AddressBook addressEntryList = new AddressBook();
 
+    public static AddressBook Address Book = new AddressBook();
+    public static AddressBook addressEntryList = new AddressBook();
+*/
 
     public static void TreeInformation() {
         if (AddressBook.addressEntryList.isEmpty()) {
@@ -18,7 +18,7 @@ public class AddressBookTest {
     }
 
     /*
-    In this class i need to test the functions I create for AddressBook
+    In this class I need to test the functions I create for AddressBook
      */
 
 }
