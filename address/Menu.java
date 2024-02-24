@@ -11,22 +11,44 @@ public class Menu {
         Scanner menuObject = new Scanner(System.in);
         String conditonalString = null;
         do {
-            System.out.println("*******************************");
-            System.out.println("A)Loading from a File:");
-            System.out.println("B)Additional");
-            System.out.println("C)Removal");
-            System.out.println("D)Find:");
-            System.out.println("E)Listing");
-            System.out.println("F)Quit:");
-            System.out.println("*******************************");
-            System.out.println(" ");
-            // Byte input since I will use a switch statement to load file.
-            String option = menuObject.nextLine();
-            System.out.println(option);
-            conditonalString =  option;
+            TextDisplay();
+            // String input since I will use a switch statement to load file.
+            String option = menuObject.nextLine().toUpperCase();
+            conditonalString = option;
             System.out.println(conditonalString + " --- this is the conditional");
+                //this switch statement will call other functions in order for the menu to work.
+                /*
+                at the moment the switch statement looks at lower case letters only.
+                 */
+                switch (option) {
+                    case ("A"):
+                        System.out.println(option);
+                        break;
+                    case ("B"):
+                        System.out.println(option);
+                        break;
+                    case ("C"):
+                        System.out.println(option);
+                        break;
+                    case ("D"):
+                        System.out.println(option);
+                    case ("E"):
+                        System.out.println(option);
+                        break;
+                    case ("F"):
+                        System.out.println(option);
+                        break;
+                    default:
+                        System.out.println(option + " is not an option");
+                        System.out.println("Please Try again");
+                        break;
+                }
+
         }
+
             while (!conditonalString.equals("f") && !conditonalString.equals("F"));
+
+            System.out.print("Quiting");
     }
 
     public static String prompt_FirstName(){
@@ -62,7 +84,16 @@ public class Menu {
         System.out.print("Email: ");
         return "email@yahoo.com";
     }
-
+    private static void TextDisplay(){
+        System.out.println("*******************************");
+        System.out.println("A)Loading from a File:");
+        System.out.println("B)Additional");
+        System.out.println("C)Removal");
+        System.out.println("D)Find:");
+        System.out.println("E)Listing");
+        System.out.println("F)Quit:");
+        System.out.println("*******************************");
+    }
 }
 
 //remainder code
