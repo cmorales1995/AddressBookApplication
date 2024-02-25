@@ -1,5 +1,8 @@
 package address;
 
+import address.data.AddressBook;
+
+import java.io.File;
 import java.util.Scanner;
 
 import static java.lang.String.valueOf;
@@ -9,11 +12,15 @@ public class Menu {
 
     public static void displayMenu(){
         Scanner menuObject = new Scanner(System.in);
+        Scanner UserInputName = new Scanner(System.in);
+        File UserFileName;
         String conditonalString = null;
         do {
+
             TextDisplay();
             // String input since I will use a switch statement to load file.
             String option = menuObject.nextLine().toUpperCase();
+
             conditonalString = option;
             System.out.println(conditonalString + " --- this is the conditional");
                 //this switch statement will call other functions in order for the menu to work.
@@ -22,7 +29,12 @@ public class Menu {
                  */
                 switch (option) {
                     case ("A"):
-                        System.out.println(option);
+                        System.out.println("Please Enter the file name:");
+                        UserFileName = new File(menuObject.nextLine());
+                        String Filesource = "address/data/" + UserFileName.toString();
+                        System.out.println(Filesource);
+
+                        AddressBook.ReadFile(new File(Filesource));
                         break;
                     case ("B"):
                         System.out.println(option);
@@ -45,9 +57,8 @@ public class Menu {
                 }
 
         }
-
-            while (!conditonalString.equals("f") && !conditonalString.equals("F"));
-
+            while (!conditonalString.equals("F"));
+           // while (!conditonalString.equals("f") && !conditonalString.equals("F"));
             System.out.print("Quiting");
     }
 

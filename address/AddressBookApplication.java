@@ -1,6 +1,7 @@
 package address;
 
 import address.data.AddressBookTest;
+import address.data.MenuTest;
 import address.data.addressEntry;
 import address.data.AddressBook;
 import java.io.File;
