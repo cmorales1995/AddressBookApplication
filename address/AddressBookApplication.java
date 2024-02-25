@@ -57,10 +57,12 @@ public class AddressBookApplication {
     }
 
     public static void main(String[] args) {
+       /*
         File test = new File("/Users/cesarmorales/IdeaProjects/AddressBookApplication/src/address/data/Test.txt");
+
         initAddressBookExercise(addressbook);
         AddressBook.ReadFile(test);
-
+        */
         Menu.displayMenu();
 
         // this was test code of an instance I created in my test class. I deleted it.

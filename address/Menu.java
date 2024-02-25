@@ -5,24 +5,23 @@ import address.data.AddressBook;
 import java.io.File;
 import java.util.Scanner;
 
-import static java.lang.String.valueOf;
+//import static java.lang.String.valueOf;
 
 //https://www.youtube.com/watch?v=hOxeh_j4MEc&themeRefresh=1
 public class Menu {
 
     public static void displayMenu(){
         Scanner menuObject = new Scanner(System.in);
-        Scanner UserInputName = new Scanner(System.in);
         File UserFileName;
-        String conditonalString = null;
+        String ConditionalString;
         do {
 
             TextDisplay();
             // String input since I will use a switch statement to load file.
             String option = menuObject.nextLine().toUpperCase();
 
-            conditonalString = option;
-            System.out.println(conditonalString + " --- this is the conditional");
+            ConditionalString = option;
+            System.out.println(ConditionalString + " --- this is the conditional");
                 //this switch statement will call other functions in order for the menu to work.
                 /*
                 at the moment the switch statement looks at lower case letters only.
@@ -31,22 +30,52 @@ public class Menu {
                     case ("A"):
                         System.out.println("Please Enter the file name:");
                         UserFileName = new File(menuObject.nextLine());
-                        String Filesource = "address/data/" + UserFileName.toString();
-                        System.out.println(Filesource);
+                        String FileSource = "address/data/" + UserFileName;
+                        System.out.println(FileSource);
 
-                        AddressBook.ReadFile(new File(Filesource));
+                        AddressBook.ReadFile(new File(FileSource));
                         break;
+                        // This is the Additional in order to add
+                        // another entry to the end of data structure
                     case ("B"):
-                        System.out.println(option);
+                        String Confirmation;
+                        do {
+                            Scanner ConfirmationInput = new Scanner(System.in);
+                            System.out.println("Please Enter the following information to Add:");
+                            System.out.println(prompt_FirstName());
+                            System.out.println(prompt_LastName());
+                            System.out.println(prompt_Street());
+                            System.out.println(prompt_City());
+                            System.out.println(prompt_State());
+                            System.out.println(prompt_Zip());
+                            System.out.println(prompt_Telephone());
+                            System.out.println(prompt_Email());
+                            System.out.println("Is This Correct? Y/N");
+                            Confirmation = ConfirmationInput.nextLine().toUpperCase();
+                        } 
+                        while(!Confirmation.equals("Y"));
+                        System.out.println("Returning to Menu");
                         break;
+                    // This is the Removal function used to delete an entry by last name
+                    // in the data structure
                     case ("C"):
                         System.out.println(option);
                         break;
+                    /*
+                    This function is used to find entries in the Address Book
+                     */
                     case ("D"):
                         System.out.println(option);
+                        break;
+                    /*
+                    This function is used to list the Address Book
+                     */
                     case ("E"):
                         System.out.println(option);
                         break;
+                     /*
+                    This ends the program and Menu.
+                     */
                     case ("F"):
                         System.out.println(option);
                         break;
@@ -57,43 +86,50 @@ public class Menu {
                 }
 
         }
-            while (!conditonalString.equals("F"));
-           // while (!conditonalString.equals("f") && !conditonalString.equals("F"));
+            while (!ConditionalString.equals("F"));
+           // while (!ConditionalString.equals("f") && !conditionalString.equals("F"));
             System.out.print("Quiting");
     }
 
     public static String prompt_FirstName(){
         System.out.print("First Name: ");
-            return "Jane";
+        Scanner FirstName = new Scanner(System.in);
+        return String.valueOf(FirstName.nextLine());
     }
     public static String prompt_LastName() {
         System.out.print("Last Name: ");
-            return "Doe";
+        Scanner LastName = new Scanner(System.in);
+        return String.valueOf(LastName.nextLine());
         }
     public static String prompt_Street(){
         System.out.print("Street: ");
-        return "Default street";
+        Scanner StreetInput = new Scanner(System.in);
+        return String.valueOf(StreetInput.nextLine());
     }
     public static String prompt_City(){
         System.out.print("City: ");
-
-        return "Default city";
+        Scanner CityInput = new Scanner(System.in);
+        return String.valueOf(CityInput.nextLine());
     }
     public static String prompt_State(){
         System.out.print("State: ");
-        return "Default State";
+        Scanner StateInput = new Scanner(System.in);
+        return String.valueOf(StateInput.nextLine());
     }
     public static String prompt_Zip(){
         System.out.print("Zip Code:");
-        return "9921";
+        Scanner ZipCodeInput = new Scanner(System.in);
+        return String.valueOf(ZipCodeInput.nextLine());
     }
     public static String prompt_Telephone(){
         System.out.print("Phone Number:");
-        return "911";
+        Scanner PhoneInput = new Scanner(System.in);
+        return String.valueOf(PhoneInput.nextLine());
     }
     public static String prompt_Email(){
         System.out.print("Email: ");
-        return "email@yahoo.com";
+        Scanner EmailInput = new Scanner(System.in);
+        return String.valueOf(EmailInput.nextLine());
     }
     private static void TextDisplay(){
         System.out.println("*******************************");
@@ -106,31 +142,3 @@ public class Menu {
         System.out.println("*******************************");
     }
 }
-
-//remainder code
-/*
-        //this is the first name
-        String first_Name = Menu.prompt_FirstName();
-        System.out.println(first_Name);
-        // this is the last name
-        String last_Name = Menu.prompt_LastName();
-        System.out.println(last_Name);
-        // This is the street
-        String Street_name = Menu.prompt_Street();
-        System.out.println(Street_name);
-        // This is the city
-        String city_name = Menu.prompt_City();
-        System.out.println(city_name);
-        // This is the state
-        String State_name = Menu.prompt_State();
-        System.out.println(State_name);
-        // This is the zip code
-        String zip_code = Menu.prompt_Zip();
-        System.out.println(zip_code);
-        // This is the phone number
-        String phone_number = Menu.prompt_Telephone();
-        System.out.println(phone_number);
-        // This is the email address
-        String email_address = Menu.prompt_Email();
-        System.out.println(email_address);
-        */
