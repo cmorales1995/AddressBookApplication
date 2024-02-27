@@ -22,8 +22,6 @@ public class AddressBook {
     public static TreeMap<Integer, addressEntry> addressEntryList = new TreeMap<>();
 
     public static void add(Integer MasterKey,addressEntry entry){
-        Integer updateKeys;
-        updateKeys = getKeys();
 
         if (MasterKey.equals(0)) {
             System.out.println("MASTER KEY VALUE: " + MasterKey);
@@ -69,80 +67,38 @@ public class AddressBook {
     //this needs the key.
     // also see if you can just use TEST as the input rather than creating a different object for it.
     public static void ReadFile(File test){
-
-        System.out.println(test.exists());
-        Scanner OpenFile;
-        addressEntry ml = new addressEntry();
-        try {
-            OpenFile = new Scanner(test);
-         }
-        catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        // if I want the file to go through every line, I need a delimiter to parse it.
-        // currently this will reset the first name every time it's the while loop.
-        List<String> results = new ArrayList<>();
-        String data;
-        // I can create an entry and push it with the key.
-        while (OpenFile.hasNextLine()) {
-            data = OpenFile.nextLine();
-            results.add(List.of(Arrays.toString(data.split("\\s+"))).toString().replace("[", "")
-                    .replace("]", "")
-            );
-        }
-        //     results = List.of(data.split("\\s+"));
-        if (results.isEmpty()) {
-            System.out.println("File did not contain any information.");
+        if(test.exists()) {
+            System.out.println(test.exists());
+            Scanner OpenFile;
+            addressEntry FileEntryObject = new addressEntry();
+            try {
+                OpenFile = new Scanner(test);
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
             }
 
-    //System.out.println(results.size() % 8 ); // this should be 0
-    //System.out.println(results.get(3));
-        int LoopResults = results.size() / 8;
-        System.out.println(LoopResults);
-        for (int i = 0; i < results.size(); i++) {
-            System.out.println(results.get(i));
-        }
-        do{
-              int counter = 0;
-//            ml.setFirstname(results.get(0 + counter));
-//            ml.setLastName(results.get(1 + counter));
-//            String streetName = results.get(2 + counter);
-//            ml.setStreet(streetName);
-//            ml.setCity(results.get(3 + counter));
-//            ml.setState(results.get(4 + counter));
-//            ml.setZip(Integer.parseInt(results.get(5 +counter)));
-//            ml.setPhone(results.get(6 +counter));
-//            ml.setEmail(results.get(7 +counter));
-//            counter = counter + 8;
-//            add(Menu.MenuKey, ml);
-//            Menu.MenuKey++;
-            LoopResults = LoopResults - 1 ;
-            System.out.println(results.get(0));
-            System.out.println(results.get(8));
-            System.out.println(LoopResults);
-        }
-        while(LoopResults != 0);
+            while (OpenFile.hasNextLine()) {
+                FileEntryObject.setFirstname(OpenFile.nextLine());
+                FileEntryObject.setLastName(OpenFile.nextLine());
+                FileEntryObject.setStreet(OpenFile.nextLine());
 
-//       // ml.setFirstname(results.get(0));
-//
-//
-//    for (int i = 0; i < results.size(); i++){
-//            ml.setFirstname(results.get(i));
-//            ml.setLastName(results.get(i+1));
-//           String streetName = results.get(i+1) + " " + results.get(i+1);
-//
-//            ml.setStreet(streetName);
-//            ml.setCity(results.get(i+1));
-//            ml.setState(results.get(i+1));
-//            System.out.println(i);
-//            int zipcode = results();
-//            ml.setZip(i+1);
-//            ml.setPhone(results.get(i+1));
-//            ml.setEmail(results.get(i+1));
-//        }
+                FileEntryObject.setCity(OpenFile.nextLine());
+                FileEntryObject.setState(OpenFile.nextLine());
 
-        System.out.println(Menu.MenuKey);
-    message();
+                FileEntryObject.setZip(Integer.parseInt(OpenFile.nextLine()));
+                FileEntryObject.setPhone(OpenFile.nextLine());
+                FileEntryObject.setEmail(OpenFile.nextLine());
+
+                add(Menu.MenuKey, FileEntryObject);
+                Menu.MenuKey = Menu.MenuKey + 1;
+            }
+
+            System.out.println(Menu.MenuKey);
+            message();
+            AddressBook.list2();
+        }
+        else
+            System.out.println("File does not exist. Please place file in Source folder.");
     }
 
     public static void message(){
