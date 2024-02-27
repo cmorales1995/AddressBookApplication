@@ -1,6 +1,8 @@
 package address;
 
 import address.data.AddressBook;
+import address.data.AddressBookTest;
+import address.data.addressEntry;
 
 import java.io.File;
 import java.util.Scanner;
@@ -35,25 +37,53 @@ public class Menu {
 
                         AddressBook.ReadFile(new File(FileSource));
                         break;
-                        // This is the Additional in order to add
-                        // another entry to the end of data structure
+                    // This is the Additional in order to add
+                    // another entry to the end of data structure
                     case ("B"):
                         String Confirmation;
+                        String InputFirstname;
+                        String InputLastName;
+                        String InputStreetName;
+                        String InputCity;
+                        String InputState;
+                        String InputZipCode;
+                        String InputTelephone;
+                        String InputEmail;
                         do {
                             Scanner ConfirmationInput = new Scanner(System.in);
                             System.out.println("Please Enter the following information to Add:");
-                            System.out.println(prompt_FirstName());
-                            System.out.println(prompt_LastName());
-                            System.out.println(prompt_Street());
-                            System.out.println(prompt_City());
-                            System.out.println(prompt_State());
-                            System.out.println(prompt_Zip());
-                            System.out.println(prompt_Telephone());
-                            System.out.println(prompt_Email());
+
+                            InputFirstname = prompt_FirstName();
+                            System.out.println(InputFirstname);
+
+                            InputLastName = prompt_LastName();
+                            System.out.println(InputLastName);
+
+                            InputStreetName = prompt_Street();
+                            System.out.println(InputStreetName);
+
+                            InputCity = prompt_City();
+                            System.out.println(InputCity);
+
+                            InputState = prompt_State();
+                            System.out.println(InputState);
+
+                            InputZipCode = prompt_Zip();
+                            System.out.println(InputZipCode);
+
+                            InputTelephone = prompt_Telephone();
+                            System.out.println(InputTelephone);
+
+                            InputEmail = prompt_Email();
+                            System.out.println(InputEmail);
+
                             System.out.println("Is This Correct? Y/N");
                             Confirmation = ConfirmationInput.nextLine().toUpperCase();
-                        } 
-                        while(!Confirmation.equals("Y"));
+                        }
+                        while (!Confirmation.equals("Y"));
+                        // This is when the add function should be called.
+                        Additional(InputFirstname, InputLastName, InputStreetName, InputCity, InputState,
+                                InputZipCode, InputTelephone, InputEmail);
                         System.out.println("Returning to Menu");
                         break;
                     // This is the Removal function used to delete an entry by last name
@@ -71,6 +101,7 @@ public class Menu {
                     This function is used to list the Address Book
                      */
                     case ("E"):
+                        //AddressBook.addressEntryList.values();
                         System.out.println(option);
                         break;
                      /*
@@ -117,6 +148,7 @@ public class Menu {
         return String.valueOf(StateInput.nextLine());
     }
     public static String prompt_Zip(){
+
         System.out.print("Zip Code:");
         Scanner ZipCodeInput = new Scanner(System.in);
         return String.valueOf(ZipCodeInput.nextLine());
@@ -140,5 +172,14 @@ public class Menu {
         System.out.println("E)Listing");
         System.out.println("F)Quit:");
         System.out.println("*******************************");
+    }
+    public static void Additional(String FirstName, String LastName, String Street, String City,
+                                  String State , String ZipCode , String Phone , String Email) {
+       int ZipConvert = Integer.parseInt(ZipCode);
+        addressEntry Contact = new addressEntry(FirstName,LastName,Street, City,
+               State ,  ZipConvert , Phone ,Email);
+
+        AddressBook.add(Contact);
+        AddressBookTest.TreeInformation();
     }
 }

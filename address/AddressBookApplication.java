@@ -63,6 +63,8 @@ public class AddressBookApplication {
         initAddressBookExercise(addressbook);
         AddressBook.ReadFile(test);
         */
+       // Integer ZipCodeTest = MenuTest.Zip_codeTest();
+       // System.out.println(ZipCodeTest);
         Menu.displayMenu();
 
         // this was test code of an instance I created in my test class. I deleted it.

@@ -12,14 +12,26 @@ public class AddressBook {
     there are currently two Tree maps being used in here for general testing.
     I need to see which one has the better implementation
      */
-    //Integer keys = 0;
+    private static Integer keys = 0;
 
     public static TreeMap<Integer, String> books = new TreeMap<>();
 
     public static TreeMap<Integer, addressEntry> addressEntryList = new TreeMap<>();
 
     public static void add(addressEntry entry){
-        AddressBook.addressEntryList.put(2,entry);
+        Integer updateKeys;
+        updateKeys = getKeys();
+
+        if (updateKeys.equals(0)) {
+            AddressBook.addressEntryList.put(0,entry);
+        }
+        else {
+
+            AddressBook.addressEntryList.put(updateKeys, entry);
+            updateKeys++;
+            setKeys(updateKeys);
+        }
+        System.out.println("the key value is: " + updateKeys);
     }
     /*
     Difference between these two functions is how they grab the elements in the treemap.
@@ -96,7 +108,15 @@ public class AddressBook {
     public static void message(){
         System.out.println("*****Out of this Address Book function*****");
     }
-        //addressEntryList.
+
+    public static Integer getKeys() {
+        return keys;
+    }
+
+    public static void setKeys(Integer keys) {
+        AddressBook.keys = keys;
+    }
+
 
 }
 
