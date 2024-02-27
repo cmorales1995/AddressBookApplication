@@ -5,6 +5,7 @@ import address.data.AddressBookTest;
 import address.data.addressEntry;
 
 import java.io.File;
+import java.util.Map;
 import java.util.Scanner;
 
 //import static java.lang.String.valueOf;
@@ -17,24 +18,30 @@ public class Menu {
         File UserFileName;
         String ConditionalString;
         do {
-
+            //This function displays the menu.
             TextDisplay();
-            // String input since I will use a switch statement to load file.
+
+            // String input for the switch statement which converts any user input to uppercase
+            // so the switch statement knows which option it is.
             String option = menuObject.nextLine().toUpperCase();
 
+            //This conditional statement is used to quit the program.
             ConditionalString = option;
-            System.out.println(ConditionalString + " --- this is the conditional");
-                //this switch statement will call other functions in order for the menu to work.
                 /*
-                at the moment the switch statement looks at lower case letters only.
-                 */
+                //this switch statement will call other functions in order for the menu to work.
+               It works by converting any letter into uppercase in order to avoid any confusion in the DO/While loop.
+               This also eliminates a lot of unwanted characters.
+                */
                 switch (option) {
+                    /*
+                        This asks the user for the file name and
+                        also adds a string which helps the IDE look for these files within the source file.
+                        The AddressBook Read file function is then called with the amended string.
+                     */
                     case ("A"):
                         System.out.println("Please Enter the file name:");
                         UserFileName = new File(menuObject.nextLine());
                         String FileSource = "address/data/" + UserFileName;
-                        System.out.println(FileSource);
-
                         AddressBook.ReadFile(new File(FileSource));
                         break;
                     // This is the Additional in order to add
@@ -98,6 +105,7 @@ public class Menu {
                             AddressBook.list();
                             System.out.println("Which entry would you like to delete?");
                             Integer InputRemoval = Integer.valueOf(UserRemoveChoice.nextLine());
+                            InputRemoval = InputRemoval - 1;
                             AddressBook.remove(InputRemoval);
                         }
 
@@ -106,8 +114,10 @@ public class Menu {
                     This function is used to find entries in the Address Book
                      */
                     case ("D"):
+                        Scanner InputFinder = new Scanner(System.in);
+                        System.out.println("Please Enter ");
 
-                        System.out.println(option);
+                       Find(InputFinder.nextLine());
                         break;
                     /*
                     This function is used to list the Address Book
@@ -192,4 +202,21 @@ public class Menu {
         AddressBookTest.TreeInformation();
         MenuKey++;
     }
+    public static void Find(String FindInput){
+        Integer InputIndex = null;
+        for (Map.Entry<Integer,addressEntry> entry : AddressBook.addressEntryList.entrySet()) {
+            if (entry.getValue().toString().equals(FindInput) ) {
+             InputIndex = entry.getKey();
+             System.out.println(AddressBook.addressEntryList.get(InputIndex));
+            }
+            else{
+                System.out.println("Input not found.");
+                break;
+            }
+        }
+//        if(AddressBook.addressEntryList.containsValue(FindInput)){
+//            System.out.println("Input not found.");
+        }
+
+
 }

@@ -17,42 +17,28 @@ public class AddressBook {
      */
 
 
-    public static TreeMap<Integer, String> books = new TreeMap<>();
-
     public static TreeMap<Integer, addressEntry> addressEntryList = new TreeMap<>();
 
+    /*
+    This is the add function which looks at the key given and placed the incoming object into an index.
+    if the key is zero then it's the first entry or object otherwise it the values continue to ascend.
+     */
     public static void add(Integer MasterKey,addressEntry entry){
 
-        if (MasterKey.equals(0)) {
-            System.out.println("MASTER KEY VALUE: " + MasterKey);
-            AddressBook.addressEntryList.put(0,entry);
-        }
+        if (MasterKey.equals(0)) {AddressBook.addressEntryList.put(0,entry);}
+
         else {
             AddressBook.addressEntryList.put(MasterKey, entry);
         }
-        System.out.println("the key value is: " + MasterKey);
     }
-    /*
-    Difference between these two functions is how they grab the elements in the treemap.
-     */
-     /*
-    This is a function that allows me to see the contents of the treemap.
-    */
 
     public static void list(){
         for (Map.Entry<Integer,addressEntry> entry : addressEntryList.entrySet()) {
-            System.out.println(entry.getKey() + ")" + entry.getValue().toString());
+            System.out.println(entry.getKey()+1 + ")" + entry.getValue().toString());
         }
     }
     public static void remove(Integer entry){
-//        Set<Map.Entry<Integer, addressEntry> > entries = addressEntryList.entrySet();
-//
-//        for (Map.Entry<Integer, addressEntry> entry : entries) {
-//            System.out.println(entry.getKey() + "->" + entry.getValue());
-//            if (entry.getValue() ==  name)
-//                System.out.println("TRUE");
-//            else
-//                System.out.println("False");
+
             if(entry <= AddressBook.addressEntryList.size()){
                 AddressBook.addressEntryList.remove(entry);
                 Menu.MenuKey = Menu.MenuKey - 1;

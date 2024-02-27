@@ -45,7 +45,7 @@ public class addressEntry {
 
         return  getFirstname() + ' ' + getLastName() + '\n' +
                 ' ' + getStreet() + ' ' + '\n' +
-                       getCity()  + '\n' +
+                ' ' + getCity()  + '\n' +
                 ' ' + getState() + ' ' + getZip()    + '\n' +
                 ' ' + getPhone() + ' ' + getEmail()  + '\n';
     }
@@ -54,11 +54,7 @@ public class addressEntry {
      *
      * The following code is a block of getters and setters for addressEntry
      */
-    public void setFirstname(String firstname) {
-        this.firstName = firstname;
-        AddressBook.books.put(1,firstname);
-
-    }
+    public void setFirstname(String firstname) { this.firstName = firstname;}
 
     public String getFirstname() {
         return firstName;
@@ -87,9 +83,11 @@ public class addressEntry {
     public String getStreet() {
         return street;
     }
+
     public void setCity(String city){
         this.city = city;
     }
+
     public String getCity() {
         return city;
     }
