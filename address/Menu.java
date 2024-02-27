@@ -89,20 +89,31 @@ public class Menu {
                     // This is the Removal function used to delete an entry by last name
                     // in the data structure
                     case ("C"):
-                        System.out.println(option);
+                        if(Menu.MenuKey == 0){
+                            System.out.println("No entries available to remove");
+                            break;
+                        }
+                        else {
+                            Scanner UserRemoveChoice = new Scanner(System.in);
+                            AddressBook.list();
+                            System.out.println("Which entry would you like to delete?");
+                            Integer InputRemoval = Integer.valueOf(UserRemoveChoice.nextLine());
+                            AddressBook.remove(InputRemoval);
+                        }
+
                         break;
                     /*
                     This function is used to find entries in the Address Book
                      */
                     case ("D"):
+
                         System.out.println(option);
                         break;
                     /*
                     This function is used to list the Address Book
                      */
                     case ("E"):
-                        AddressBook.list3();
-                        AddressBook.list2();
+                        AddressBook.list();
                         break;
                      /*
                     This ends the program and Menu.

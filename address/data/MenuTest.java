@@ -9,7 +9,7 @@ This is a class that will test the menu features and other code implementations.
  */
 public class MenuTest {
     /*
-    //String FileTester = "Test.txt";
+    //String FileTester = "Addresses.txt";
 
    public static void invokeDisplay(){
        //Menu.displayMenu();

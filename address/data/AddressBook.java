@@ -38,32 +38,31 @@ public class AddressBook {
      /*
     This is a function that allows me to see the contents of the treemap.
     */
-    public static void list(int key) {
 
-        System.out.println(books.get(key));
-    }
-    public static void list2() {
-
-        System.out.println(addressEntryList.values());
-    }
-    // this needs a string in order to search and remove
-    public static void list3(){
-        // stack overflow suggestion:
-        AddressBook.addressEntryList.entrySet().forEach(System.out::println);
-    }
-    public static void remove(addressEntry name){
-        Set<Map.Entry<Integer, addressEntry> > entries = addressEntryList.entrySet();
-
-        for (Map.Entry<Integer, addressEntry> entry : entries) {
-            System.out.println(entry.getKey() + "->" + entry.getValue());
-            if (entry.getValue() ==  name)
-                System.out.println("TRUE");
-            else
-                System.out.println("False");
-
+    public static void list(){
+        for (Map.Entry<Integer,addressEntry> entry : addressEntryList.entrySet()) {
+            System.out.println(entry.getKey() + ")" + entry.getValue().toString());
         }
+    }
+    public static void remove(Integer entry){
+//        Set<Map.Entry<Integer, addressEntry> > entries = addressEntryList.entrySet();
+//
+//        for (Map.Entry<Integer, addressEntry> entry : entries) {
+//            System.out.println(entry.getKey() + "->" + entry.getValue());
+//            if (entry.getValue() ==  name)
+//                System.out.println("TRUE");
+//            else
+//                System.out.println("False");
+            if(entry <= AddressBook.addressEntryList.size()){
+                AddressBook.addressEntryList.remove(entry);
+                Menu.MenuKey = Menu.MenuKey - 1;
+            }
+            else{
+                System.out.println("User Entry is larger than address book size, Try again.");
+            }
 
-        }
+
+    }
     //this needs the key.
     // also see if you can just use TEST as the input rather than creating a different object for it.
     public static void ReadFile(File test){
@@ -88,14 +87,13 @@ public class AddressBook {
                 FileEntryObject.setZip(Integer.parseInt(OpenFile.nextLine()));
                 FileEntryObject.setPhone(OpenFile.nextLine());
                 FileEntryObject.setEmail(OpenFile.nextLine());
-
-                add(Menu.MenuKey, FileEntryObject);
+                AddressBook.addressEntryList.put(Menu.MenuKey,FileEntryObject);
+               // add(Menu.MenuKey, FileEntryObject);
                 Menu.MenuKey = Menu.MenuKey + 1;
             }
 
             System.out.println(Menu.MenuKey);
             message();
-            AddressBook.list2();
         }
         else
             System.out.println("File does not exist. Please place file in Source folder.");

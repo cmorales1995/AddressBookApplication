@@ -40,9 +40,12 @@ public class addressEntry {
      * toString() is function that displays strings to the console.
      */
     public String toString(){
-        return getFirstname() + ' ' + getLastName() + ' ' + getStreet() +
-                ' ' + getCity() + ' ' + getState() + ' ' + getZip()
-                + ' ' + getPhone() + ' ' + getEmail();
+
+        return  getFirstname() + ' ' + getLastName() + '\n' +
+                ' ' + getStreet() + ' ' + '\n' +
+                       getCity()  + '\n' +
+                ' ' + getState() + ' ' + getZip()    + '\n' +
+                ' ' + getPhone() + ' ' + getEmail()  + '\n';
     }
 
     /**
