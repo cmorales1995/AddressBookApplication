@@ -104,7 +104,7 @@ public class Menu {
                             Scanner UserRemoveChoice = new Scanner(System.in);
                             AddressBook.list();
                             System.out.println("Which entry would you like to delete?");
-                            Integer InputRemoval = Integer.valueOf(UserRemoveChoice.nextLine());
+                            int InputRemoval = Integer.parseInt(UserRemoveChoice.nextLine());
                             InputRemoval = InputRemoval - 1;
                             AddressBook.remove(InputRemoval);
                         }
@@ -203,7 +203,7 @@ public class Menu {
         MenuKey++;
     }
     public static void Find(String FindInput){
-        Integer InputIndex = null;
+        Integer InputIndex;
         for (Map.Entry<Integer,addressEntry> entry : AddressBook.addressEntryList.entrySet()) {
             if (entry.getValue().toString().equals(FindInput) ) {
              InputIndex = entry.getKey();
