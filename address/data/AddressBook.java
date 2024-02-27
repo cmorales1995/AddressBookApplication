@@ -15,7 +15,7 @@ public class AddressBook {
     there are currently two Tree maps being used in here for general testing.
     I need to see which one has the better implementation
      */
-    private static int keys = 0;
+
 
     public static TreeMap<Integer, String> books = new TreeMap<>();
 
@@ -65,57 +65,36 @@ public class AddressBook {
     }
     //this needs the key.
     // also see if you can just use TEST as the input rather than creating a different object for it.
-    public static void ReadFile(File test){
-        if(test.exists()) {
-            System.out.println(test.exists());
+    public static void ReadFile(File UserFile){
+
+        if(UserFile.exists()) {
+            System.out.println(UserFile.exists());
             Scanner OpenFile;
-            addressEntry FileEntryObject = new addressEntry();
+
             try {
-                OpenFile = new Scanner(test);
-            } catch (FileNotFoundException e) {
+                OpenFile = new Scanner(UserFile);
+            }
+            catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }
 
-            while (OpenFile.hasNextLine()) {
-                FileEntryObject.setFirstname(OpenFile.nextLine());
-                FileEntryObject.setLastName(OpenFile.nextLine());
-                FileEntryObject.setStreet(OpenFile.nextLine());
-
-                FileEntryObject.setCity(OpenFile.nextLine());
-                FileEntryObject.setState(OpenFile.nextLine());
-
-                FileEntryObject.setZip(Integer.parseInt(OpenFile.nextLine()));
-                FileEntryObject.setPhone(OpenFile.nextLine());
-                FileEntryObject.setEmail(OpenFile.nextLine());
-                AddressBook.addressEntryList.put(Menu.MenuKey,FileEntryObject);
-               // add(Menu.MenuKey, FileEntryObject);
-                Menu.MenuKey = Menu.MenuKey + 1;
+            while (OpenFile.hasNextLine()){
+                Menu.Additional(OpenFile.nextLine(),
+                                OpenFile.nextLine(),
+                                OpenFile.nextLine(),
+                                OpenFile.nextLine(),
+                                OpenFile.nextLine(),
+                                OpenFile.nextLine(),
+                                OpenFile.nextLine(),
+                                OpenFile.nextLine());
             }
 
-            System.out.println(Menu.MenuKey);
-            message();
+            System.out.println(Menu.MenuKey + " Entries have been transferred.");
+            System.out.println("*****Returning to Menu*****");
+
         }
         else
             System.out.println("File does not exist. Please place file in Source folder.");
     }
 
-    public static void message(){
-        System.out.println("*****Out of this Address Book function*****");
-    }
-
-    public static Integer getKeys() {
-        return keys;
-    }
-
-    public static void setKeys(Integer keys) {
-        AddressBook.keys = keys;
-    }
-
-
 }
-
-
-
-
-
-

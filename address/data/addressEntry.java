@@ -24,6 +24,8 @@ public class addressEntry {
         this.phone = "default number";
         this.email = "default email";
     }
+    // This is one of the constructors for the class that
+    // takes Strings in order to set private variables.
     public addressEntry(String firstName, String lastName, String street, String city,
      String State , int zip , String phone , String email) {
         setFirstname(firstName);
