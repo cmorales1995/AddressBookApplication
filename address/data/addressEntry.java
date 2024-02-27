@@ -1,7 +1,5 @@
 package address.data;
 
-//import java.util.Collection;
-/// look up hashmap... /// linked
 public class addressEntry {
     /**
      * private variables for this class.
@@ -39,7 +37,7 @@ public class addressEntry {
     }
 
     /**
-     * toString() is function that displays strings to the console.
+     * toString() is function that return strings that are used to print to console.
      */
     public String toString(){
 

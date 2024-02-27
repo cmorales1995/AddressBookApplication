@@ -8,8 +8,7 @@ import java.io.File;
 import java.util.Map;
 import java.util.Scanner;
 
-//import static java.lang.String.valueOf;
-
+// This video helped me refresh on do while loops in order to get the menu to work.
 //https://www.youtube.com/watch?v=hOxeh_j4MEc&themeRefresh=1
 public class Menu {
     public static Integer MenuKey = 0;
@@ -138,7 +137,6 @@ public class Menu {
 
         }
             while (!ConditionalString.equals("F"));
-           // while (!ConditionalString.equals("f") && !conditionalString.equals("F"));
             System.out.print("Quiting");
     }
 
@@ -214,8 +212,8 @@ public class Menu {
                 break;
             }
         }
-//        if(AddressBook.addressEntryList.containsValue(FindInput)){
-//            System.out.println("Input not found.");
+
+
         }
 
 

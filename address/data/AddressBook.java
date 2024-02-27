@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 // more info on Tree maps
+// These were some links that helped me use a treemap
 //https://www.geeksforgeeks.org/treemap-in-java/
 //https://www.geeksforgeeks.org/how-to-iterate-over-a-treemap-in-java/
 //https://stackoverflow.com/questions/43688506/how-to-format-the-output-of-a-treemap
@@ -25,7 +26,7 @@ public class AddressBook {
      */
     public static void add(Integer MasterKey,addressEntry entry){
 
-        if (MasterKey.equals(0)) {AddressBook.addressEntryList.put(0,entry);}
+        if (MasterKey.equals(0)){ AddressBook.addressEntryList.put(0,entry);}
 
         else {
             AddressBook.addressEntryList.put(MasterKey, entry);
@@ -49,8 +50,12 @@ public class AddressBook {
 
 
     }
-    //this needs the key.
-    // also see if you can just use TEST as the input rather than creating a different object for it.
+
+    /*
+    This function grabs the UserFile string and checks to see if the file exists and
+    while it does, place all the contents into an addressEntry Object and
+    calls the Additional function to add to the TreeMap
+     */
     public static void ReadFile(File UserFile){
 
         if(UserFile.exists()) {
@@ -74,7 +79,7 @@ public class AddressBook {
                                 OpenFile.nextLine(),
                                 OpenFile.nextLine());
             }
-
+            // Some confirmation messages.
             System.out.println(Menu.MenuKey + " Entries have been transferred.");
             System.out.println("*****Returning to Menu*****");
 
