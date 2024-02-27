@@ -1,5 +1,7 @@
 package address.data;
 
+import address.Menu;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -7,6 +9,7 @@ import java.util.*;
 // more info on Tree maps
 //https://www.geeksforgeeks.org/treemap-in-java/
 //https://www.geeksforgeeks.org/how-to-iterate-over-a-treemap-in-java/
+//https://stackoverflow.com/questions/43688506/how-to-format-the-output-of-a-treemap
 public class AddressBook {
     /*
     there are currently two Tree maps being used in here for general testing.
@@ -46,7 +49,10 @@ public class AddressBook {
         System.out.println(addressEntryList.values());
     }
     // this needs a string in order to search and remove
-
+    public static void list3(){
+        // stack overflow suggestion:
+        AddressBook.addressEntryList.entrySet().forEach(System.out::println);
+    }
     public static void remove(addressEntry name){
         Set<Map.Entry<Integer, addressEntry> > entries = addressEntryList.entrySet();
 
@@ -60,22 +66,26 @@ public class AddressBook {
         }
 
         }
-
+    //this needs the key.
+    // also see if you can just use TEST as the input rather than creating a different object for it.
     public static void ReadFile(File test){
 
         System.out.println(test.exists());
-        Scanner myReader;
+        Scanner OpenFile;
+        addressEntry ml = new addressEntry();
         try {
-            myReader = new Scanner(test);
-        } catch (FileNotFoundException e) {
+            OpenFile = new Scanner(test);
+         }
+        catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         // if I want the file to go through every line, I need a delimiter to parse it.
         // currently this will reset the first name every time it's the while loop.
         List<String> results = new ArrayList<>();
         String data;
-        while (myReader.hasNextLine()) {
-            data = myReader.nextLine();
+        // I can create an entry and push it with the key.
+        while (OpenFile.hasNextLine()) {
+            data = OpenFile.nextLine();
             results.add(List.of(Arrays.toString(data.split("\\s+"))).toString().replace("[", "")
                     .replace("]", "")
             );
@@ -84,23 +94,55 @@ public class AddressBook {
         if (results.isEmpty()) {
             System.out.println("File did not contain any information.");
             }
-            // ml.setFirstname(results.get(0));
-            // System.out.println();
-            System.out.println(results.size());
 
-            /*
-            ml.setFirstname(results.get(0));
-            ml.setLastName(results.get(1));
-            // String streetName = results.get(2) + " " + results.get(3);
-            ml.setStreet((results.get(2) + results.get(3)));
-            ml.setCity(results.get(4));
-            ml.setState(results.get(5));
-            //ml.setZip(Integer.parseInt(results.get(6)));
-            ml.setPhone(results.get(7));
-            //ml.setEmail(results.get(8));
-             */
+    //System.out.println(results.size() % 8 ); // this should be 0
+    //System.out.println(results.get(3));
+        int LoopResults = results.size() / 8;
+        System.out.println(LoopResults);
+        for (int i = 0; i < results.size(); i++) {
+            System.out.println(results.get(i));
+        }
+        do{
+              int counter = 0;
+//            ml.setFirstname(results.get(0 + counter));
+//            ml.setLastName(results.get(1 + counter));
+//            String streetName = results.get(2 + counter);
+//            ml.setStreet(streetName);
+//            ml.setCity(results.get(3 + counter));
+//            ml.setState(results.get(4 + counter));
+//            ml.setZip(Integer.parseInt(results.get(5 +counter)));
+//            ml.setPhone(results.get(6 +counter));
+//            ml.setEmail(results.get(7 +counter));
+//            counter = counter + 8;
+//            add(Menu.MenuKey, ml);
+//            Menu.MenuKey++;
+            LoopResults = LoopResults - 1 ;
+            System.out.println(results.get(0));
+            System.out.println(results.get(8));
+            System.out.println(LoopResults);
+        }
+        while(LoopResults != 0);
 
-        message();
+//       // ml.setFirstname(results.get(0));
+//
+//
+//    for (int i = 0; i < results.size(); i++){
+//            ml.setFirstname(results.get(i));
+//            ml.setLastName(results.get(i+1));
+//           String streetName = results.get(i+1) + " " + results.get(i+1);
+//
+//            ml.setStreet(streetName);
+//            ml.setCity(results.get(i+1));
+//            ml.setState(results.get(i+1));
+//            System.out.println(i);
+//            int zipcode = results();
+//            ml.setZip(i+1);
+//            ml.setPhone(results.get(i+1));
+//            ml.setEmail(results.get(i+1));
+//        }
+
+        System.out.println(Menu.MenuKey);
+    message();
     }
 
     public static void message(){

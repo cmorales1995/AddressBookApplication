@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 //https://www.youtube.com/watch?v=hOxeh_j4MEc&themeRefresh=1
 public class Menu {
-    static Integer MenuKey = 0;
+    public static Integer MenuKey = 0;
     public static void displayMenu(){
         Scanner menuObject = new Scanner(System.in);
         File UserFileName;
@@ -101,14 +101,13 @@ public class Menu {
                     This function is used to list the Address Book
                      */
                     case ("E"):
+                        AddressBook.list3();
                         AddressBook.list2();
-                        System.out.println(option);
                         break;
                      /*
                     This ends the program and Menu.
                      */
                     case ("F"):
-                        System.out.println(option);
                         break;
                     default:
                         System.out.println(option + " is not an option");

@@ -26,7 +26,7 @@ public class AddressBookApplication {
         addressEntry testName = new addressEntry("John", "Smith", "A street",
                 "Hayward" ,"CA", 992, "920-023", "Jsmith@gmail.com");
         // this has default values given by the contructor.
-        addressEntry ml = new addressEntry();
+       // addressEntry ml = new addressEntry();
         int key = 0;
         /*
         This area is going to be used to open a file.
@@ -38,7 +38,7 @@ public class AddressBookApplication {
           System.out.println(results.toString()
                 .replace("[", "")
                 .replace("]", ""));
-         */
+
 
         //this is the treemap and i was able to place the first entry with key 1
         // the second value with key 2
@@ -57,7 +57,7 @@ public class AddressBookApplication {
         AddressBook.list2();
         //
         System.out.println("*****Out of this initAddressBookExercise function*****");
-
+*/
     }
 
     public static void main(String[] args) {
