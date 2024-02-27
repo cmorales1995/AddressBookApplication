@@ -13,7 +13,7 @@ public class AddressBookTest {
             System.out.println("The AddressBook Tree map is empty");
         } else {
             System.out.println("The AddressBook Tree map length:");
-            System.out.print(AddressBook.addressEntryList.size());
+            System.out.println(AddressBook.addressEntryList.size());
         }
     }
 

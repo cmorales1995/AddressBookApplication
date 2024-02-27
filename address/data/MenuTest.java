@@ -1,15 +1,16 @@
 package address.data;
 
-import address.Menu;
+//import address.Menu;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 /*
 This is a class that will test the menu features and other code implementations.
  */
 public class MenuTest {
+    /*
+    //String FileTester = "Test.txt";
 
-    String FileTester = "Test.txt";
    public static void invokeDisplay(){
        //Menu.displayMenu();
 
@@ -29,4 +30,5 @@ public class MenuTest {
            return ZipCodeInput.nextInt();
        }
    }
+   */
 }

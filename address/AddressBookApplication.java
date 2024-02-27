@@ -27,6 +27,7 @@ public class AddressBookApplication {
                 "Hayward" ,"CA", 992, "920-023", "Jsmith@gmail.com");
         // this has default values given by the contructor.
         addressEntry ml = new addressEntry();
+        int key = 0;
         /*
         This area is going to be used to open a file.
         this is the exact file path it should be
@@ -41,8 +42,11 @@ public class AddressBookApplication {
 
         //this is the treemap and i was able to place the first entry with key 1
         // the second value with key 2
-        AddressBook.addressEntryList.put(1,testName);
-        AddressBook.add(ml);
+        //AddressBook.addressEntryList.put(1,testName);
+        AddressBook.add(key,testName);
+        key++;
+        System.out.println(key);
+        AddressBook.add(key,ml);
         //addressEntryList.books2.put(2,ml);
 
         //System.out.println(book1.toString());
@@ -65,7 +69,7 @@ public class AddressBookApplication {
         */
        // Integer ZipCodeTest = MenuTest.Zip_codeTest();
        // System.out.println(ZipCodeTest);
-        Menu.displayMenu();
+         Menu.displayMenu();
 
         // this was test code of an instance I created in my test class. I deleted it.
        // System.out.println(AddressBookTest.testcase.getFirstname());

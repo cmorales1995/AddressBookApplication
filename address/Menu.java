@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 //https://www.youtube.com/watch?v=hOxeh_j4MEc&themeRefresh=1
 public class Menu {
-
+    static Integer MenuKey = 0;
     public static void displayMenu(){
         Scanner menuObject = new Scanner(System.in);
         File UserFileName;
@@ -101,7 +101,7 @@ public class Menu {
                     This function is used to list the Address Book
                      */
                     case ("E"):
-                        //AddressBook.addressEntryList.values();
+                        AddressBook.list2();
                         System.out.println(option);
                         break;
                      /*
@@ -178,8 +178,8 @@ public class Menu {
        int ZipConvert = Integer.parseInt(ZipCode);
         addressEntry Contact = new addressEntry(FirstName,LastName,Street, City,
                State ,  ZipConvert , Phone ,Email);
-
-        AddressBook.add(Contact);
+        AddressBook.add(MenuKey,Contact);
         AddressBookTest.TreeInformation();
+        MenuKey++;
     }
 }
